@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>RECIST1.1 到肿瘤相关SDTM数据集产生 | AllenSun's Blog</title><meta name="author" content="Allen Sun"><meta name="copyright" content="Allen Sun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="肿瘤相关SDTM数据集笔记。 1. RECIST简明手册1.1 基线评估   病灶 具体描述    可测量病灶 肿瘤病灶，至少有一条可以精确测量的径线1. CT扫描，大于10mm；2. 胸部X射线，大于20mm；3. 其他常规检查仪器 10mm。    淋巴结：病理学增大可测量，单个淋巴结CT扫描短径&gt;&#x3D;15mm   不可测量病灶 不满足上述要求的病灶，如恶性胸腹水、囊性病变等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RECIST1.1 到肿瘤相关SDTM数据集产生">
+<meta property="og:url" content="https://allensrj7.github.io/2025/03/29/RECIST1.1%E5%88%B0%E8%82%BF%E7%98%A4%E7%9B%B8%E5%85%B3SDTM%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BA%A7%E7%94%9F/index.html">
+<meta property="og:site_name" content="AllenSun&#39;s Blog">
+<meta property="og:description" content="肿瘤相关SDTM数据集笔记。 1. RECIST简明手册1.1 基线评估   病灶 具体描述    可测量病灶 肿瘤病灶，至少有一条可以精确测量的径线1. CT扫描，大于10mm；2. 胸部X射线，大于20mm；3. 其他常规检查仪器 10mm。    淋巴结：病理学增大可测量，单个淋巴结CT扫描短径&gt;&#x3D;15mm   不可测量病灶 不满足上述要求的病灶，如恶性胸腹水、囊性病变等。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://allensrj7.github.io/img/tx.jpg">
+<meta property="article:published_time" content="2025-03-29T03:32:05.000Z">
+<meta property="article:modified_time" content="2025-03-29T03:46:38.025Z">
+<meta property="article:author" content="Allen Sun">
+<meta property="article:tag" content="临床试验思考">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://allensrj7.github.io/img/tx.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RECIST1.1 到肿瘤相关SDTM数据集产生",
+  "url": "https://allensrj7.github.io/2025/03/29/RECIST1.1%E5%88%B0%E8%82%BF%E7%98%A4%E7%9B%B8%E5%85%B3SDTM%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BA%A7%E7%94%9F/",
+  "image": "https://allensrj7.github.io/img/tx.jpg",
+  "datePublished": "2025-03-29T03:32:05.000Z",
+  "dateModified": "2025-03-29T03:46:38.025Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Allen Sun",
+      "url": "https://allensrj7.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://allensrj7.github.io/2025/03/29/RECIST1.1%E5%88%B0%E8%82%BF%E7%98%A4%E7%9B%B8%E5%85%B3SDTM%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BA%A7%E7%94%9F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'RECIST1.1 到肿瘤相关SDTM数据集产生',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/background.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: transparent;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">AllenSun's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">RECIST1.1 到肿瘤相关SDTM数据集产生</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">RECIST1.1 到肿瘤相关SDTM数据集产生</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-03-29T03:32:05.000Z" title="发表于 2025-03-29 11:32:05">2025-03-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-03-29T03:46:38.025Z" title="更新于 2025-03-29 11:46:38">2025-03-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>肿瘤相关SDTM数据集笔记。</p>
+<h1 id="1-RECIST简明手册"><a href="#1-RECIST简明手册" class="headerlink" title="1. RECIST简明手册"></a>1. RECIST简明手册</h1><h2 id="1-1-基线评估"><a href="#1-1-基线评估" class="headerlink" title="1.1 基线评估"></a>1.1 基线评估</h2><table>
+<thead>
+<tr>
+<th>病灶</th>
+<th>具体描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可测量病灶</td>
+<td><strong>肿瘤病灶</strong>，至少有一条可以精确测量的径线<br>1. CT扫描，大于10mm；<br>2. 胸部X射线，大于20mm；<br>3. 其他常规检查仪器 10mm。</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>淋巴结</strong>：病理学增大可测量，单个淋巴结CT扫描短径&gt;&#x3D;15mm</td>
+</tr>
+<tr>
+<td>不可测量病灶</td>
+<td>不满足上述要求的病灶，如恶性胸腹水、囊性病变等。</td>
+</tr>
+</tbody></table>
+<p>基线评估时选择一个或多个可测量的病灶作为靶病灶，总数不超过5个，每个器官不超过2个。靶病灶测量时选最长直径，非靶病灶无须测量但基线评估需要进行记录。肿瘤病灶大小的基线评定需要在治疗前4周内完成。</p>
+<h2 id="1-2-靶病灶反应评价"><a href="#1-2-靶病灶反应评价" class="headerlink" title="1.2 靶病灶反应评价"></a>1.2 靶病灶反应评价</h2><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>完全缓解 (Complete Response, CR)</td>
+<td>所有靶病灶消失，病理性淋巴结短直径&lt;10mm，持续4周。</td>
+</tr>
+<tr>
+<td>部分缓解 (Partial Response, PR)</td>
+<td>和基线相比，靶病灶直径总和减少30%，至少持续4周。</td>
+</tr>
+<tr>
+<td>疾病进展 (Progressive Disease, PD)</td>
+<td>和研究中某次访视的最小值比，靶病灶直径总和增加至少20%；或出现新病灶</td>
+</tr>
+<tr>
+<td>疾病稳定 (Stable Disease，SD)</td>
+<td>没有达到PR，也没有达到PD，介于两者之间。</td>
+</tr>
+</tbody></table>
+<h2 id="1-3-总反应评价"><a href="#1-3-总反应评价" class="headerlink" title="1.3 总反应评价"></a>1.3 总反应评价</h2><p>结合靶病灶、非靶病灶、新病灶进行总体反应评价：</p>
+<table>
+<thead>
+<tr>
+<th>靶病灶</th>
+<th>非靶病灶</th>
+<th>新病灶</th>
+<th>总体反应评价</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CR</td>
+<td>CR</td>
+<td>无</td>
+<td>CR</td>
+</tr>
+<tr>
+<td>CR</td>
+<td>PR&#x2F;SD</td>
+<td>无</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>CR</td>
+<td>无法评估</td>
+<td>无</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>PR</td>
+<td>非PD或无法评估</td>
+<td>无</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>SD</td>
+<td>非PD或无法评估</td>
+<td>无</td>
+<td>SD</td>
+</tr>
+<tr>
+<td>PD</td>
+<td>任何情况</td>
+<td>是</td>
+<td>PD</td>
+</tr>
+<tr>
+<td>任何情况</td>
+<td>PD</td>
+<td>是</td>
+<td>PD</td>
+</tr>
+<tr>
+<td>任何情况</td>
+<td>任何情况</td>
+<td>是</td>
+<td>PD</td>
+</tr>
+</tbody></table>
+<p>肿瘤标志物无法单独用来评价肿瘤客观缓解，但如果标志物水平在基线超过正常值上限，用来评价完全缓解时，必须回到正常水平。</p>
+<h1 id="2-肿瘤项目特有SDTM-ADaM数据集"><a href="#2-肿瘤项目特有SDTM-ADaM数据集" class="headerlink" title="2. 肿瘤项目特有SDTM&#x2F;ADaM数据集"></a>2. 肿瘤项目特有SDTM&#x2F;ADaM数据集</h1><h2 id="2-1-SDTM-发现类TU-TR-RS-domain"><a href="#2-1-SDTM-发现类TU-TR-RS-domain" class="headerlink" title="2.1 SDTM - 发现类TU&#x2F;TR&#x2F;RS domain"></a>2.1 SDTM - 发现类TU&#x2F;TR&#x2F;RS domain</h2><h3 id="2-1-1-TU-Tumor-Identification"><a href="#2-1-1-TU-Tumor-Identification" class="headerlink" title="2.1.1 TU - Tumor Identification"></a>2.1.1 TU - Tumor Identification</h3><p>用于记录肿瘤病灶的基线特征、解剖学位置，每次访视的肿瘤记录，像是肿瘤的身份信息。</p>
+<table>
+<thead>
+<tr>
+<th>变量类型</th>
+<th>变量举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标识变量</td>
+<td>TUSEQ, <br>TUGRPID, <br>TUREFID, <br>TULNKID,<br>TUSPID, <br>TULNKGRP</td>
+<td>TULNKID，包含靶病灶、非靶病灶、新病灶肿瘤记录编号等复合信息如：T01&#x2F;N01&#x2F;NEW01</td>
+</tr>
+<tr>
+<td>主题变量</td>
+<td>TUTESTCD</td>
+<td>‘TUMIDENT’，指’Tumor Identification’，一般对应3类TUORRES: <br>TARGET&#x2F;NON-TARGET&#x2F;NEW</td>
+</tr>
+<tr>
+<td>修饰变量</td>
+<td>TUTEST, <br>TUORRES,<br>TUSTRESC,<br>TUNAM, <br>TULOC, <br>TULAT, <br>TUDIR, <br>TUPORTOT, <br>TUMETHOD, <br>TULOBXFL,<br>TUBLFL<br>TUEVAL<br>TUEVALID<br>TUACPTFL</td>
+<td>TUORRES，说明病灶是靶病灶、非靶病灶、新病灶、良性或异常<br>TUSTRESC，是标准化名称；<br>TULOC，是病灶所在位置；<br>TUPORTOT，对于解剖位置的进一步说明，整个、单一等<br>TULAT，指在身体左侧或右侧；<br>TUMETHOD，指检查方法是CT还是MRI等；<br>TULOBXFL、TUBLFL，指基线值指标；<br>TUEVAL、TUEVALID，肿瘤评估者的角色；<br>TUACPTFL，超过1名独立评估员时的记录值</td>
+</tr>
+<tr>
+<td>时间变量</td>
+<td>TUDTC<br>TUDY<br>VISIT<br>VISITNUM<br></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="2-1-1-1-分裂或融合"><a href="#2-1-1-1-分裂或融合" class="headerlink" title="2.1.1.1 分裂或融合"></a>2.1.1.1 分裂或融合</h4><table>
+<thead>
+<tr>
+<th>病灶</th>
+<th>做法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>相互关联</td>
+<td>将关联的TULNKID，从T01改成T01.1&#x2F;T01.2；再将TUTEST赋值为’Tumor Split’；</td>
+</tr>
+<tr>
+<td>无法关联</td>
+<td>若分裂或融合，前后时点无法关联，则TU数据集不展示分裂或融合，但是TR计算时取径长之和。</td>
+</tr>
+</tbody></table>
+<h3 id="2-1-2-TR-Tumor-Results"><a href="#2-1-2-TR-Tumor-Results" class="headerlink" title="2.1.2 TR - Tumor Results"></a>2.1.2 TR - Tumor Results</h3><p>用于记录肿瘤测量的定量或定性结果，定量指的是各靶病灶和全部靶病灶直径总和；定性指非靶病灶的存在状态和新病灶的出现。</p>
+<table>
+<thead>
+<tr>
+<th>变量类型</th>
+<th>变量举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标识变量</td>
+<td>TRSEQ, <br>TRGRPID, <br>TRREFID, <br>TRLNKID,<br>TRSPID, <br>TRLNKGRP</td>
+<td>TRLNKID &#x3D; TULNKID，两者相互关联。<br>TRLNKGRP，需要和RSLNKGRP联系起来，可以用Tumor assessment-VISIT-SPID呈现</td>
+</tr>
+<tr>
+<td>主题变量</td>
+<td>TRTESTCD</td>
+<td>靶病灶，TRTESTCD&#x3D;’DIAMETER’ 直径；<br>非靶病灶，TRTESTCD&#x3D;’TUMSTATE’肿瘤状态；<br>靶病灶直径总和，TRTESTCD&#x3D;’SUMDIAM’ 直径总和。</td>
+</tr>
+<tr>
+<td>修饰变量</td>
+<td>TRTEST, <br>TRORRES,<br>TRORRESU<br>TRSTRESC,<br>TRSTRESN<br>TRSTRESU<br>TRSTAT<br>TRNAM, <br>TRMETHOD, <br>TRLOBXFL,<br>TRBLFL<br>TREVAL<br>TREVALID<br>TRACPTFL</td>
+<td>TRORRES，若是直径总和就是数值、若是非靶病灶肿瘤状态就是’PRESENT&#x2F;ABSENT’<br>TRSTRESC，是标准化名称；<br>TRMETHOD，指检查方法是CT还是MRI等<br>TRLOBXFL、TRBLFL，指基线值指标；<br>TREVAL、TREVALID，肿瘤评估者的角色；<br>TRACPTFL，超过1名独立评估员时的记录值</td>
+</tr>
+<tr>
+<td>时间变量</td>
+<td>TRDTC<br>TRDY<br>VISIT<br>VISITNUM<br></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="2-1-3-编程实现思路"><a href="#2-1-3-编程实现思路" class="headerlink" title="2.1.3 编程实现思路"></a>2.1.3 编程实现思路</h3><p>根据acrf，raw数据对应靶病灶、非靶病灶在筛选期和后续访视，其中包含TU和TR的信息，</p>
+<p>TU domain，从raw数据集中取相应TUORRES的内容纵向合并，数据哪个部分会写在datapagename里面；随后根据acrf赋值TUTESTCD等值。按照常规做法计算TUDTC、TUDY、VISIT、EPOCH、TUSEQ然后输出即可。</p>
+<p>TR domain，每一条对应一个肿瘤的病灶大小，同时每个受试者观测都有一个TRSUM_raw，对应单次访视肿瘤的直径总和，nodup取这个值出来即可。</p>
+<h3 id="2-1-4-RS-Disease-Response"><a href="#2-1-4-RS-Disease-Response" class="headerlink" title="2.1.4 RS - Disease Response"></a>2.1.4 RS - Disease Response</h3><p>用于疾病疗效评估，收集疾病评估信息，在SDTM IG3.2中属于肿瘤相关域，之后被归集到了QRS相关域。</p>
+<p>观察结果在同一次访视中是多对一的关系，因此可以用TRLNKGRP和RSLNKGRP相互关联。</p>
+<table>
+<thead>
+<tr>
+<th>变量类型</th>
+<th>变量举例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标识变量</td>
+<td>RSSEQ, <br>RSGRPID, <br>RSREFID, <br>RSLNKID,<br>RSSPID, <br>RSLNKGRP</td>
+<td>TRLNKGRP &#x3D; RSLNKGRP，两者相互关联。<br>可以用Tumor assessment-VISIT-SPID呈现</td>
+</tr>
+<tr>
+<td>主题变量</td>
+<td>RSTESTCD</td>
+<td>分别观察靶病灶疗效、非靶病灶疗效、是否新病灶、总体疗效<br>RSTESTCD &#x3D; “TRGRESP”&#x2F;RSTEST &#x3D; “Target Response”<br>RSTESTCD &#x3D; “NTRGRESP”&#x2F;RSTEST &#x3D; “Non-target Response”<br>RSTESTCD &#x3D; “NEWLIND”&#x2F;RSTEST &#x3D; “New Lesion Indicator”<br>RSTESTCD &#x3D; “OVRLRESP”&#x2F;RSTEST &#x3D; “Overall Response”</td>
+</tr>
+<tr>
+<td>修饰变量</td>
+<td>RSTEST<br>RSCAT<br>RSSCAT<br>RSORRES<br>RSORRESU<br>RSSTRESC<br>RSSTRESN<br>RSSTAT<br>RSREASND<br>RSMETHOD<br>RSBLFL<br>RSLOBXFL</td>
+<td>RSORRES，放置RECIST 1.1的评估结果：CR，PR，SD，PD，无法评估等。<br>RSCAT，放置评估方法，有些是RECIST 1.1，还可能是iRECIST。</td>
+</tr>
+<tr>
+<td>时间变量</td>
+<td>RSDTC<br>RSDY<br></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="2-1-4-1-RS编程实现思路"><a href="#2-1-4-1-RS编程实现思路" class="headerlink" title="2.1.4.1 RS编程实现思路"></a>2.1.4.1 RS编程实现思路</h4><p>从raw取RS相关数据集，其中结果是经过RECIST 1.1评估之后的结果，rsorrtl - 靶病灶评估结果；rsorrntl - 非靶病灶评估结果；rsnlyn - 是否出现新病灶；rsorres_raw - 总体评估结果，直接取出来即可。但注意RSDTC需要和tr里的时间进行比对，同一次访视里，如果病灶发生PD，需要选择最早时间，其他情况选择最晚时间。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://allensrj7.github.io">Allen Sun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://allensrj7.github.io/2025/03/29/RECIST1.1%E5%88%B0%E8%82%BF%E7%98%A4%E7%9B%B8%E5%85%B3SDTM%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BA%A7%E7%94%9F/">https://allensrj7.github.io/2025/03/29/RECIST1.1%E5%88%B0%E8%82%BF%E7%98%A4%E7%9B%B8%E5%85%B3SDTM%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BA%A7%E7%94%9F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://allensrj7.github.io" target="_blank">AllenSun's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%B8%B4%E5%BA%8A%E8%AF%95%E9%AA%8C%E6%80%9D%E8%80%83/">临床试验思考</a></div><div class="post-share"><div class="social-share" data-image="/img/tx.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/03/03/%E5%9C%A8SAS%E7%BC%96%E7%A8%8B%E4%B8%AD%E4%BD%BF%E7%94%A8Hash%E5%AF%B9%E8%B1%A1/" title="在SAS编程中使用Hash对象"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">在SAS编程中使用Hash对象</div></div><div class="info-2"><div class="info-item-1">在SAS编程中，使用Hash对象能够快速的进行检索和匹配，减少程序运行时间，对项目后期Batch Run检查程序Log有重要意义。 在SAS编程中使用Hash对象声明和定义hash对象应用的初始步骤是先声明对象，然后定义key和data。 123456789data a;    if _N_ = 1 then do;        declare hash h();        rc = h.definekey(&#x27;k&#x27;);        rc = h.defineData(&#x27;d&#x27;);        rc = defineDone();        call missing(k, d);    end;run;   这两种声明方式都可以： declare hash myhash(dataset: &#39;mydata&#39;, ordered: &#39;yes&#39;); myhash = _new_ hash(dataset: &#39;mydata&#39;, ordered:...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/01/05/SDTMIG%20-%202%20Fundamentals%20of%20the%20SDTM/" title="SDTMIG - 2 Fundamentals of the SDTM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-05</div><div class="info-item-2">SDTMIG - 2 Fundamentals of the SDTM</div></div><div class="info-2"><div class="info-item-1">笔记记录出自 SDTMIG 3.4，2 Fundamentals of the SDTM部分 观测与变量SDTM数据集里的变量大概分成五类：  标识变量 （Identifier）如STUDYID, SUBJID 主题变量（Topic）如DM里是SUBJID, AE里是AETERM 时间变量（Timing）如start date和end date 修饰变量（Qualifier）对于观察结果的补充和说明，可以是文本或者数值 分组修饰符（Grouping Qualifier）观察结果分组如–CAT, –SCAT 结果修饰符（Result Qualifier）具体测试结果如–ORRES, –STRESC 同义词修饰符（Synonym Qualifier）特定变量替代名称如–DECOD等 记录修饰符（Record Qualifier）观察结果附加属性如DM中的AGE, SEX，发现域中的–BLFL等 变量修饰符（Variable Qualifier）进一步描述观察的特定变量，如–ORRESU, –DOSE等   规则变量（Rule...</div></div></div></a><a class="pagination-related" href="/2025/01/16/%E5%8F%91%E7%8E%B0%E7%B1%BB%E5%9F%9F%E9%87%8CClinical%20Significant%E7%9A%84%E6%98%BE%E7%A4%BA%E6%96%B9%E5%BC%8F/" title="发现类域里Clinical Significant的显示方式"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-16</div><div class="info-item-2">发现类域里Clinical Significant的显示方式</div></div><div class="info-2"><div class="info-item-1">今天在做工作的时候，发现有项目在VS域里用INTP作为VSTESTCD的值，衍生了这条观测作为是否存在’Clinical Significant’，略感疑惑，翻了一下IG做些笔记记录。SDTMIG 3.4，4.5.5 Clinical Significance for Findings Observation Class Data 里提到了这部分内容。 发现类域里显示Clinical Significance的方式心电图测量，会有很多波段数据和一个总体解释，这时候有两种方式去显示EG域里观测是否为CS：  一种是在EGTESTCD里展示一条INTP(Interpretation)，这条INTP的值可能是ABNORMAL&#x2F;NORMAL&#x2F;ABNORMAL CS&#x2F;ABNORMAL NCS等等，用来展示某次访视的整个检查结果； 另一种是用–CLSIG变量，用来表示某条检查是否CS。  VS域也可以用INTP看了CT之后发现，VS域里面–TESTCD里也可以用INTP，虽然都是赋值’INTP’，但是需要注意的是它的CodeList Code: C66741,...</div></div></div></a><a class="pagination-related" href="/2024/12/24/%E7%89%B9%E6%AE%8A%E7%9B%AE%E7%9A%84%E5%9F%9F-CDISC%E7%AC%94%E8%AE%B0/" title="特殊目的域-CDISC笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-24</div><div class="info-item-2">特殊目的域-CDISC笔记</div></div><div class="info-2"><div class="info-item-1">特殊目的域DMdemographics，包含了人口学特征以及治疗分组及时间的数据集。 主要包含变量studyid, domain, usubjid, subjid, rfstdtc, rfendtc, rfxstdtc, rfxendtc, dthdtc, dthfl, age, sex, arm, armcd, actarm… topic variable:...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Allen Sun</div><div class="author-info-description">药企程序员，记录工作生活</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/allensrj"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>联系我</span></div><div class="announcement_content"><br>📮 Email: allensrj@qq.com<br>📇 LinkedIn: linkedin.com/in/allensrj/<br>🐱 Github: github.com/allensrj</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-RECIST%E7%AE%80%E6%98%8E%E6%89%8B%E5%86%8C"><span class="toc-number">1.</span> <span class="toc-text">1. RECIST简明手册</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%9F%BA%E7%BA%BF%E8%AF%84%E4%BC%B0"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 基线评估</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E9%9D%B6%E7%97%85%E7%81%B6%E5%8F%8D%E5%BA%94%E8%AF%84%E4%BB%B7"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 靶病灶反应评价</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E6%80%BB%E5%8F%8D%E5%BA%94%E8%AF%84%E4%BB%B7"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 总反应评价</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%82%BF%E7%98%A4%E9%A1%B9%E7%9B%AE%E7%89%B9%E6%9C%89SDTM-ADaM%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">2.</span> <span class="toc-text">2. 肿瘤项目特有SDTM&#x2F;ADaM数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-SDTM-%E5%8F%91%E7%8E%B0%E7%B1%BBTU-TR-RS-domain"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 SDTM - 发现类TU&#x2F;TR&#x2F;RS domain</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-TU-Tumor-Identification"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.1.1 TU - Tumor Identification</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-1-%E5%88%86%E8%A3%82%E6%88%96%E8%9E%8D%E5%90%88"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">2.1.1.1 分裂或融合</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-TR-Tumor-Results"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.1.2 TR - Tumor Results</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-%E7%BC%96%E7%A8%8B%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-number">2.1.3.</span> <span class="toc-text">2.1.3 编程实现思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-4-RS-Disease-Response"><span class="toc-number">2.1.4.</span> <span class="toc-text">2.1.4 RS - Disease Response</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4-1-RS%E7%BC%96%E7%A8%8B%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-number">2.1.4.1.</span> <span class="toc-text">2.1.4.1 RS编程实现思路</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/29/RECIST1.1%E5%88%B0%E8%82%BF%E7%98%A4%E7%9B%B8%E5%85%B3SDTM%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BA%A7%E7%94%9F/" title="RECIST1.1 到肿瘤相关SDTM数据集产生">RECIST1.1 到肿瘤相关SDTM数据集产生</a><time datetime="2025-03-29T03:32:05.000Z" title="发表于 2025-03-29 11:32:05">2025-03-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/03/%E5%9C%A8SAS%E7%BC%96%E7%A8%8B%E4%B8%AD%E4%BD%BF%E7%94%A8Hash%E5%AF%B9%E8%B1%A1/" title="在SAS编程中使用Hash对象">在SAS编程中使用Hash对象</a><time datetime="2025-03-03T14:02:05.000Z" title="发表于 2025-03-03 22:02:05">2025-03-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/28/%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%EF%BC%88LLM%EF%BC%89%E7%9A%84%E6%96%B9%E5%BC%8F%E6%B1%87%E6%80%BB%EF%BC%882025%E5%B9%B42%E6%9C%88%EF%BC%89/" title="个人使用大语言模型（LLM）的方式汇总（2025年2月）">个人使用大语言模型（LLM）的方式汇总（2025年2月）</a><time datetime="2025-02-28T15:33:56.000Z" title="发表于 2025-02-28 23:33:56">2025-02-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/25/%E5%A6%82%E4%BD%95%E7%94%A8AI%E7%BF%BB%E8%AF%91%E4%B8%80%E7%AF%87docx%E6%96%87%E6%A1%A3/" title="如何用AI翻译一篇docx文档">如何用AI翻译一篇docx文档</a><time datetime="2025-02-25T12:14:10.000Z" title="发表于 2025-02-25 20:14:10">2025-02-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/26/%3CR%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E9%AB%98%E6%95%88%E5%A4%84%E7%90%86%E6%8C%87%E5%8D%97%3E-4-datatable/" title="&lt;R语言数据高效处理指南&gt;-4-datatable">&lt;R语言数据高效处理指南&gt;-4-datatable</a><time datetime="2025-01-26T14:05:11.000Z" title="发表于 2025-01-26 22:05:11">2025-01-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By Allen Sun</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
