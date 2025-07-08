@@ -1,0 +1,194 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SDTMIG - 2 Fundamentals of the SDTM | AllenSun's Blog</title><meta name="author" content="Allen Sun"><meta name="copyright" content="Allen Sun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="笔记记录出自 SDTMIG 3.4，2 Fundamentals of the SDTM部分 观测与变量SDTM数据集里的变量大概分成五类：  标识变量 （Identifier）如STUDYID, SUBJID 主题变量（Topic）如DM里是SUBJID, AE里是AETERM 时间变量（Timing）如start date和end date 修饰变量（Qualifier）对于观察结果的补充和说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SDTMIG - 2 Fundamentals of the SDTM">
+<meta property="og:url" content="https://allensrj7.github.io/2025/01/05/20250105_SDTMIG%20-%202%20Fundamentals%20of%20the%20SDTM/index.html">
+<meta property="og:site_name" content="AllenSun&#39;s Blog">
+<meta property="og:description" content="笔记记录出自 SDTMIG 3.4，2 Fundamentals of the SDTM部分 观测与变量SDTM数据集里的变量大概分成五类：  标识变量 （Identifier）如STUDYID, SUBJID 主题变量（Topic）如DM里是SUBJID, AE里是AETERM 时间变量（Timing）如start date和end date 修饰变量（Qualifier）对于观察结果的补充和说">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://allensrj7.github.io/img/tx.jpg">
+<meta property="article:published_time" content="2025-01-05T10:24:03.000Z">
+<meta property="article:modified_time" content="2025-03-13T14:37:25.148Z">
+<meta property="article:author" content="Allen Sun">
+<meta property="article:tag" content="临床试验思考">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://allensrj7.github.io/img/tx.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SDTMIG - 2 Fundamentals of the SDTM",
+  "url": "https://allensrj7.github.io/2025/01/05/20250105_SDTMIG%20-%202%20Fundamentals%20of%20the%20SDTM/",
+  "image": "https://allensrj7.github.io/img/tx.jpg",
+  "datePublished": "2025-01-05T10:24:03.000Z",
+  "dateModified": "2025-03-13T14:37:25.148Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Allen Sun",
+      "url": "https://allensrj7.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://allensrj7.github.io/2025/01/05/20250105_SDTMIG%20-%202%20Fundamentals%20of%20the%20SDTM/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SDTMIG - 2 Fundamentals of the SDTM',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/background.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: transparent;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">AllenSun's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">SDTMIG - 2 Fundamentals of the SDTM</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">SDTMIG - 2 Fundamentals of the SDTM</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-05T10:24:03.000Z" title="发表于 2025-01-05 18:24:03">2025-01-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-03-13T14:37:25.148Z" title="更新于 2025-03-13 22:37:25">2025-03-13</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>笔记记录出自 SDTMIG 3.4，2 Fundamentals of the SDTM部分</p>
+<h1 id="观测与变量"><a href="#观测与变量" class="headerlink" title="观测与变量"></a>观测与变量</h1><p>SDTM数据集里的变量大概分成五类：</p>
+<ul>
+<li>标识变量 （Identifier）如STUDYID, SUBJID</li>
+<li>主题变量（Topic）如DM里是SUBJID, AE里是AETERM</li>
+<li>时间变量（Timing）如start date和end date</li>
+<li>修饰变量（Qualifier）对于观察结果的补充和说明，可以是文本或者数值<ul>
+<li>分组修饰符（Grouping Qualifier）观察结果分组如–CAT, –SCAT</li>
+<li>结果修饰符（Result Qualifier）具体测试结果如–ORRES, –STRESC</li>
+<li>同义词修饰符（Synonym Qualifier）特定变量替代名称如–DECOD等</li>
+<li>记录修饰符（Record Qualifier）观察结果附加属性如DM中的AGE, SEX，发现域中的–BLFL等</li>
+<li>变量修饰符（Variable Qualifier）进一步描述观察的特定变量，如–ORRESU, –DOSE等</li>
+</ul>
+</li>
+<li>规则变量（Rule Qualifier）描述试验模型中的开始、结束、分支或者循环条件</li>
+</ul>
+<p>举例：</p>
+<p>受试者101在研究第6天开始出现轻度恶心。</p>
+<p>这句描述里topic是不良事件术语”恶心”，表示变量是受试者标识101，时间变量是时间开始的研究日第6天，记录修饰符是严重程度，值为”轻度”。</p>
+<h1 id="数据集与域"><a href="#数据集与域" class="headerlink" title="数据集与域"></a>数据集与域</h1><p>试验研究的观察结果通常由一系列域构成，域是一组有共同主题的逻辑相关观察结果，每个域是以恶单独的数据集，用2字符代码区分，用在四个地方：一个是SDTM.XX用来描述SDTM中的数据集；一个是作为DOMAIN列的值存在domain数据集里；作为很多列名的前缀，比如LBCAT；作为关系标准RDOMAIN的值。</p>
+<p>数据集都是二维的，行表示观察结果，列表是变量。其中的变量一般来自edc数据、外部数据或者assigned和derived的数据，并且需要提供一组简短的符合CDISC说明的介绍（指的是mddt spec和TOC里关于dataset的部分）。</p>
+<h1 id="通用观察数据集类别"><a href="#通用观察数据集类别" class="headerlink" title="通用观察数据集类别"></a>通用观察数据集类别</h1><p>SDTM中包含三种通用观察域，干预类、事件类和发现类.</p>
+<ul>
+<li>干预类：指一些根据试验规定治疗（如药物暴露EC&#x2F;EX）、试验期间发生的（CM&#x2F;PR）或者由患者自行实施（烟草、咖啡如SU）的研究性、治疗性或者其他治疗。</li>
+<li>事件类：指试验中的一些事件里程碑，比如随机化或者研究完成（DS）、以及试验期间（不良事件AE）或者试验前（MH）发生的事件记录。</li>
+<li>发现类：在protocol中计划检测的试验结果，比如LB、EG、VS、QRS等。</li>
+</ul>
+<h1 id="非通用观察数据集类别"><a href="#非通用观察数据集类别" class="headerlink" title="非通用观察数据集类别"></a>非通用观察数据集类别</h1><p>主要分类为：特殊目的域（DM，SE，SV，CO）、试验设计域（TDD）、关系数据集和研究参考数据集</p>
+<h1 id="SDTM标准域模型"><a href="#SDTM标准域模型" class="headerlink" title="SDTM标准域模型"></a>SDTM标准域模型</h1><p>一个SDTM数据集里需要包含哪些变量：</p>
+<p>标识变量，STUDYID、USUBJID、DOMAIN和– SEQ在所有通用观察数据集里都是必需的，其他标识符酌情添加；时间变量，允许用于通用观察数据集；修饰变量，允许用于通用观察数据集；上述标准变量的名称不能更改用法，需要和SDTMIG内容保持一致。</p>
+<h1 id="创建一个自定义Domain"><a href="#创建一个自定义Domain" class="headerlink" title="创建一个自定义Domain"></a>创建一个自定义Domain</h1><p>遵循这个方法：首先，如果现在SDTMIG里面任何domain都不符合需要，才可以创建自定义domain；然后去CDISC官网查看<a target="_blank" rel="noopener" href="https://wiki.cdisc.org/display/SDD/SDTM+Draft+Domains+Home%EF%BC%8C%E7%9C%8B%E7%9C%8B%E9%87%8C%E9%9D%A2%E5%93%AA%E4%BA%9B%E8%87%AA%E5%AE%9A%E4%B9%89domain%E5%8F%AF%E4%BB%A5%E5%8F%82%E8%80%83%EF%BC%9B%E5%85%B6%E6%AC%A1%E9%80%9A%E8%BF%87%E5%8F%82%E8%80%83%E7%9A%84domain%EF%BC%8C%E6%8C%91%E9%80%89%E5%90%88%E9%80%82%E7%9A%84%E6%A0%87%E8%AF%86%E5%8F%98%E9%87%8F%E3%80%81%E4%B8%BB%E9%A2%98%E5%8F%98%E9%87%8F%E3%80%81%E4%BF%AE%E9%A5%B0%E5%8F%98%E9%87%8F%E4%BB%A5%E5%8F%8A%E5%90%88%E9%80%82%E7%9A%84CT%E3%80%82">https://wiki.cdisc.org/display/SDD/SDTM+Draft+Domains+Home，看看里面哪些自定义domain可以参考；其次通过参考的domain，挑选合适的标识变量、主题变量、修饰变量以及合适的CT。</a></p>
+<h1 id="注意一些不属于SDTMIG的变量"><a href="#注意一些不属于SDTMIG的变量" class="headerlink" title="注意一些不属于SDTMIG的变量"></a>注意一些不属于SDTMIG的变量</h1><p>有一些属于非临床研究（defined for use in nonclinical studyies, SEND）的变量，不得用于提交人体临床试验，具体就不列出了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://allensrj7.github.io">Allen Sun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://allensrj7.github.io/2025/01/05/20250105_SDTMIG%20-%202%20Fundamentals%20of%20the%20SDTM/">https://allensrj7.github.io/2025/01/05/20250105_SDTMIG%20-%202%20Fundamentals%20of%20the%20SDTM/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://allensrj7.github.io" target="_blank">AllenSun's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%B8%B4%E5%BA%8A%E8%AF%95%E9%AA%8C%E6%80%9D%E8%80%83/">临床试验思考</a></div><div class="post-share"><div class="social-share" data-image="/img/tx.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/12/24/20241224_%E7%89%B9%E6%AE%8A%E7%9B%AE%E7%9A%84%E5%9F%9F-CDISC%E7%AC%94%E8%AE%B0/" title="特殊目的域-CDISC笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">特殊目的域-CDISC笔记</div></div><div class="info-2"><div class="info-item-1">特殊目的域DMdemographics，包含了人口学特征以及治疗分组及时间的数据集。 主要包含变量studyid, domain, usubjid, subjid, rfstdtc, rfendtc, rfxstdtc, rfxendtc, dthdtc, dthfl, age, sex, arm, armcd, actarm… topic variable:...</div></div></div></a><a class="pagination-related" href="/2025/01/11/20250111_%3CR%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E9%AB%98%E6%95%88%E5%A4%84%E7%90%86%E6%8C%87%E5%8D%97%3E-2-Base-R/" title="&lt;R语言数据高效处理指南&gt;-2-Base R"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2"><R语言数据高效处理指南>-2-Base R</div></div><div class="info-2"><div class="info-item-1">R最受推崇的部分在于一整套tidyverse处理方式的流畅整洁，但其实不加载包，也有Base语句可以使用。 1rm(list = ls())    数据集基本探索，str, summary, head123str(iris)summary(iris)head(iris)    基本范式实现创建外部导入write.csv(), read.csv()内部创建1df = data.frame(x = 1:3, y = c(&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;))    删除123rm(df)ls()rm(list = ls()) # 删除全部环境变量    检索行检索123iris[33,]iris[33:36,]iris[c(33,37,40),]    列检索1234567iris.1 =...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/12/24/20241224_%E7%89%B9%E6%AE%8A%E7%9B%AE%E7%9A%84%E5%9F%9F-CDISC%E7%AC%94%E8%AE%B0/" title="特殊目的域-CDISC笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-24</div><div class="info-item-2">特殊目的域-CDISC笔记</div></div><div class="info-2"><div class="info-item-1">特殊目的域DMdemographics，包含了人口学特征以及治疗分组及时间的数据集。 主要包含变量studyid, domain, usubjid, subjid, rfstdtc, rfendtc, rfxstdtc, rfxendtc, dthdtc, dthfl, age, sex, arm, armcd, actarm… topic variable:...</div></div></div></a><a class="pagination-related" href="/2025/01/16/20250116_%E5%8F%91%E7%8E%B0%E7%B1%BB%E5%9F%9F%E9%87%8CClinical%20Significant%E7%9A%84%E6%98%BE%E7%A4%BA%E6%96%B9%E5%BC%8F/" title="发现类域里Clinical Significant的显示方式"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-16</div><div class="info-item-2">发现类域里Clinical Significant的显示方式</div></div><div class="info-2"><div class="info-item-1">今天在做工作的时候，发现有项目在VS域里用INTP作为VSTESTCD的值，衍生了这条观测作为是否存在’Clinical Significant’，略感疑惑，翻了一下IG做些笔记记录。SDTMIG 3.4，4.5.5 Clinical Significance for Findings Observation Class Data 里提到了这部分内容。 发现类域里显示Clinical Significance的方式心电图测量，会有很多波段数据和一个总体解释，这时候有两种方式去显示EG域里观测是否为CS：  一种是在EGTESTCD里展示一条INTP(Interpretation)，这条INTP的值可能是ABNORMAL&#x2F;NORMAL&#x2F;ABNORMAL CS&#x2F;ABNORMAL NCS等等，用来展示某次访视的整个检查结果； 另一种是用–CLSIG变量，用来表示某条检查是否CS。  VS域也可以用INTP看了CT之后发现，VS域里面–TESTCD里也可以用INTP，虽然都是赋值’INTP’，但是需要注意的是它的CodeList Code: C66741,...</div></div></div></a><a class="pagination-related" href="/2025/03/29/20250329_RECIST1.1%E5%88%B0%E8%82%BF%E7%98%A4%E7%9B%B8%E5%85%B3SDTM%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BA%A7%E7%94%9F/" title="RECIST1.1 到肿瘤相关SDTM数据集产生"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-29</div><div class="info-item-2">RECIST1.1 到肿瘤相关SDTM数据集产生</div></div><div class="info-2"><div class="info-item-1">肿瘤相关SDTM数据集笔记。 1. RECIST简明手册1.1 基线评估   病灶 具体描述    可测量病灶 肿瘤病灶，至少有一条可以精确测量的径线1. CT扫描，大于10mm；2. 胸部X射线，大于20mm；3. 其他常规检查仪器 10mm。    淋巴结：病理学增大可测量，单个淋巴结CT扫描短径&gt;&#x3D;15mm   不可测量病灶 不满足上述要求的病灶，如恶性胸腹水、囊性病变等。   基线评估时选择一个或多个可测量的病灶作为靶病灶，总数不超过5个，每个器官不超过2个。靶病灶测量时选最长直径，非靶病灶无须测量但基线评估需要进行记录。肿瘤病灶大小的基线评定需要在治疗前4周内完成。 1.2 靶病灶反应评价   反应 条件    完全缓解 (Complete Response, CR) 所有靶病灶消失，病理性淋巴结短直径&lt;10mm，持续4周。   部分缓解 (Partial Response, PR) 和基线相比，靶病灶直径总和减少30%，至少持续4周。   疾病进展 (Progressive Disease,...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Allen Sun</div><div class="author-info-description">药企程序员，记录工作生活</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/allensrj"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>联系我</span></div><div class="announcement_content"><br>📮 Email: allensrj@qq.com<br>📇 LinkedIn: linkedin.com/in/allensrj/<br>🐱 Github: github.com/allensrj</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%82%E6%B5%8B%E4%B8%8E%E5%8F%98%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">观测与变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%8E%E5%9F%9F"><span class="toc-number">2.</span> <span class="toc-text">数据集与域</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E8%A7%82%E5%AF%9F%E6%95%B0%E6%8D%AE%E9%9B%86%E7%B1%BB%E5%88%AB"><span class="toc-number">3.</span> <span class="toc-text">通用观察数据集类别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E9%80%9A%E7%94%A8%E8%A7%82%E5%AF%9F%E6%95%B0%E6%8D%AE%E9%9B%86%E7%B1%BB%E5%88%AB"><span class="toc-number">4.</span> <span class="toc-text">非通用观察数据集类别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SDTM%E6%A0%87%E5%87%86%E5%9F%9F%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">SDTM标准域模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%AE%9A%E4%B9%89Domain"><span class="toc-number">6.</span> <span class="toc-text">创建一个自定义Domain</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%B8%80%E4%BA%9B%E4%B8%8D%E5%B1%9E%E4%BA%8ESDTMIG%E7%9A%84%E5%8F%98%E9%87%8F"><span class="toc-number">7.</span> <span class="toc-text">注意一些不属于SDTMIG的变量</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/09/20250709_SAS%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AC%94%E8%AE%B0/" title="SAS正则表达式笔记">SAS正则表达式笔记</a><time datetime="2025-07-08T16:41:11.000Z" title="发表于 2025-07-09 00:41:11">2025-07-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/11/20250511_PharmaSUG%E6%96%87%E7%AB%A0%E8%8E%B7%E5%8F%96%EF%BC%88%E4%BA%8C%EF%BC%89/" title="PharmaSUG文章获取（二）">PharmaSUG文章获取（二）</a><time datetime="2025-05-10T16:41:11.000Z" title="发表于 2025-05-11 00:41:11">2025-05-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/07/20250507_PhrmaSUG%E6%96%87%E7%AB%A0%E8%8E%B7%E5%8F%96/" title="PharmaSUG文章获取（一）">PharmaSUG文章获取（一）</a><time datetime="2025-05-07T12:35:31.000Z" title="发表于 2025-05-07 20:35:31">2025-05-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/24/20250424_pymupdf%E5%A4%84%E7%90%86PDF%E6%96%87%E6%A1%A3%EF%BC%88%E4%B8%80%EF%BC%89/" title="pymupdf处理PDF文档（一）">pymupdf处理PDF文档（一）</a><time datetime="2025-04-24T12:16:03.000Z" title="发表于 2025-04-24 20:16:03">2025-04-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/29/20250329_RECIST1.1%E5%88%B0%E8%82%BF%E7%98%A4%E7%9B%B8%E5%85%B3SDTM%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BA%A7%E7%94%9F/" title="RECIST1.1 到肿瘤相关SDTM数据集产生">RECIST1.1 到肿瘤相关SDTM数据集产生</a><time datetime="2025-03-29T03:32:05.000Z" title="发表于 2025-03-29 11:32:05">2025-03-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By Allen Sun</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
